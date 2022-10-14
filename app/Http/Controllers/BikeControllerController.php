@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BikeController;
 use Illuminate\Http\Request;
 
-class BikeControllerController extends Controller
+class BikeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BikeControllerController extends Controller
      */
     public function index()
     {
-        //
+        return view('bike.index', ['activeBike' => 'active', 'subTitle' => 'Bikes - Index']);
     }
 
     /**
@@ -24,7 +24,7 @@ class BikeControllerController extends Controller
      */
     public function create()
     {
-        //
+        return view('bike.create', ['activeBike' => 'active', 'subTitle' => 'Bikes - Create']);
     }
 
     /**
@@ -35,51 +35,50 @@ class BikeControllerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('bike.store', ['activeBike' => 'active', 'name' => $request->input('name'), 'subTitle' => 'Bikes - Store']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BikeController  $bikeController
+     * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function show(BikeController $bikeController)
+    public function show($id) //Bike $bike)
     {
-        //
+        return view('bike.show', ['activeBike' => 'active', 'id' => $id, 'subTitle' => 'Bikes - Show']);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BikeController  $bikeController
+     * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function edit(BikeController $bikeController)
+    public function edit($id) //Bike $bike)
     {
-        //
+        return view('bike.edit', ['activeBike' => 'active', 'id' => $id, 'subTitle' => 'Bikes - Edit']);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BikeController  $bikeController
+     * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BikeController $bikeController)
+    public function update(Request $request, $id) //Bike $bike)
     {
-        //
+        return view('bike.update', ['activeBike' => 'active', 'id' => $id, 'name' => $request->input('name'), 'subTitle' => 'Bikes - Update']);
     }
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BikeController  $bikeController
+     * @param  \App\Models\Bike  $bike
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BikeController $bikeController)
+    public function destroy($id) //Bike $bike)
     {
-        //
+        return view('bike.destroy', ['activeBike' => 'active', 'id' => $id, 'subTitle' => 'Bikes - Destroy']);
     }
 }
